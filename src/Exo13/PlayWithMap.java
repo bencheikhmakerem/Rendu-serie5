@@ -1,6 +1,8 @@
 package Exo13;
 
 import java.util.Map;
+import java.util.function.BiFunction;
+import java.util.function.Function;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,8 +19,16 @@ public class PlayWithMap {
 						Map.entry(6, "eleven"));
 			
 		Map<Integer, String> map1 = new HashMap<>(Imutablemap);
-				List<Integer> keys=
+		
+		map1.replaceAll((key,value)->value.toUpperCase());
+		System.out.println("\n la table en majuscule");
+		map1.forEach((key,value)->System.out.println(key+"="+value));
+
+			List<Integer> keys=
 						List.of(1,2,3,4,5,6,7,8);
+			System.out.println("\n les clés et leurs valeurs");
+			map1.replaceAll((key,value)->value.toLowerCase());
+
 				for (int key : keys) {
 						map1.putIfAbsent(key, "");
 						System.out.println(key + "=" +map1.get(key));
@@ -28,6 +38,7 @@ public class PlayWithMap {
 				List<String> strings =List.of("one","two","three","four","five","six","seven",
 						"eight","nine","ten","eleven","tweleve");
 				
+
 				Map<Integer, List<String>> map2 = new HashMap<>();
 				
 					for (String string : strings) {
